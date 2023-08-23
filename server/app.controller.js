@@ -2,6 +2,8 @@ const {
 	returnTodoById,
 	returnAllTodos,
 	createNewTodo,
+	patchTodoById,
+	removeTodoById,
 } = require("./app.model");
 const pool = require("./db");
 
@@ -38,10 +40,7 @@ exports.updateTodoById = async (req, res) => {
 	try {
 		const { id } = req.params;
 		const { description } = req.body;
-		const updatedTodo = await pool.query(
-			`UPDATE todo SET description = $1 WHERE todo_id = $2`,
-			[description, id]
-		);
+		const updatedTodo = await patchTodoById(id, description);
 		res.status(200).send(updatedTodo);
 	} catch (err) {
 		console.error(err.message);
@@ -51,9 +50,7 @@ exports.updateTodoById = async (req, res) => {
 exports.deleteTodoById = async (req, res) => {
 	try {
 		const { id } = req.params;
-		const deleteTodo = await pool.query("DELETE FROM todo WHERE todo_id = $1", [
-			id,
-		]);
+		const deleteTodo = await removeTodoById(id);
 		res.status(200).send("Todo deleted");
 	} catch (err) {
 		console.error(err.message);

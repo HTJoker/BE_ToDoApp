@@ -19,3 +19,18 @@ exports.createNewTodo = async (description) => {
 	);
 	return rows[0];
 };
+
+exports.patchTodoById = async (id, description) => {
+	const { rows } = await pool.query(
+		`UPDATE todo SET description = $1 WHERE todo_id = $2`,
+		[description, id]
+	);
+	return rows[0];
+};
+
+exports.removeTodoById = async (id) => {
+	const { rows } = await pool.query("DELETE FROM todo WHERE todo_id = $1", [
+		id,
+	]);
+	return rows[0];
+};
