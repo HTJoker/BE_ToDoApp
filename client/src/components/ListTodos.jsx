@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import EditBtn from "./EditBtn";
+import DeleteBtn from "./DeleteBtn";
 
 export default function ListTodos() {
 	const [todos, setTodos] = useState([]);
@@ -9,18 +10,6 @@ export default function ListTodos() {
 			const res = await fetch("http://localhost:4000/todos");
 			const jsonData = await res.json();
 			setTodos(jsonData);
-		} catch (err) {
-			console.error(err.message);
-		}
-	};
-
-	const deleteTodo = async (id) => {
-		try {
-			const deleteTodo = await fetch(`http://localhost:4000/todos/${id}`, {
-				method: "DELETE",
-			});
-			console.log(deleteTodo);
-			setTodos(todos.filter((item) => item.todo_id !== id));
 		} catch (err) {
 			console.error(err.message);
 		}
@@ -50,12 +39,11 @@ export default function ListTodos() {
 									<EditBtn />
 								</td>
 								<td className="p-3">
-									<button
-										className="border rounded-lg pr-2 pl-2 bg-red-500 text-white"
-										onClick={() => deleteTodo(item.todo_id)}
-									>
-										Delete
-									</button>
+									<DeleteBtn
+										id={item.todo_id}
+										setTodos={setTodos}
+										todos={todos}
+									/>
 								</td>
 							</tr>
 						))}
