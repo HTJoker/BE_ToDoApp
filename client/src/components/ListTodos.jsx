@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import EditTodo from "./EditTodo";
 
 export default function ListTodos() {
 	const [todos, setTodos] = useState([]);
@@ -31,9 +32,7 @@ export default function ListTodos() {
 						<tr key={item} className=" border-b">
 							<td className="p-3">{item.description}</td>
 							<td className="p-3">
-								<button className="border rounded-lg pr-2 pl-2 bg-blue-500 text-white">
-									Edit
-								</button>
+								<EditTodo />
 							</td>
 							<td className="p-3">
 								<button className="border rounded-lg pr-2 pl-2 bg-red-500 text-white">
