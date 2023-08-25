@@ -1,12 +1,5 @@
-import PropTypes from "prop-types";
-
+/* eslint-disable react/prop-types */
 export default function DeleteBtn({ id, setTodos, todos }) {
-	DeleteBtn.propTypes = {
-		id: PropTypes.number.isRequired,
-		todos: PropTypes.string.isRequired,
-		setTodos: PropTypes.func.isRequired,
-	};
-
 	const deleteTodo = async (id) => {
 		try {
 			const deleteTodo = await fetch(`http://localhost:4000/todos/${id}`, {
@@ -20,7 +13,7 @@ export default function DeleteBtn({ id, setTodos, todos }) {
 	};
 	return (
 		<button
-			className="border rounded-lg pr-2 pl-2 bg-red-500 text-white"
+			className="border rounded-lg px-2 bg-red-500 text-white"
 			onClick={() => deleteTodo(id)}
 		>
 			Delete

@@ -36,7 +36,7 @@ export default function ListTodos() {
 							<tr key={item.todo_id} className=" border-b">
 								<td className="p-3">{item.description}</td>
 								<td className="p-3">
-									<EditBtn />
+									<EditBtn todo={item}/>
 								</td>
 								<td className="p-3">
 									<DeleteBtn
