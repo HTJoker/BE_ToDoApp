@@ -30,7 +30,7 @@ export default function InputTodo() {
 					onChange={(e) => setDescription(e.target.value)}
 					className="  border-grey-300 border focus:border-indigo-600 p-1"
 				/>
-				<button className=" rounded-tr rounded-br bg-emerald-400 pl-3 pr-3 text-white">
+				<button className=" rounded-r bg-emerald-400 px-3 text-white">
 					Add
 				</button>
 			</form>
