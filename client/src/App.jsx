@@ -4,7 +4,7 @@ import ListTodos from "./components/ListTodos";
 
 function App() {
 	return (
-		<div className="container m-0 p-0 box-border">
+		<div className=" m-0 p-0 box-border">
 			<InputTodo />
 			<ListTodos />
 		</div>

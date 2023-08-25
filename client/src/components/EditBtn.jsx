@@ -24,7 +24,7 @@ export default function EditBtn({ todo }) {
 	return (
 		<>
 			<button
-				className="border rounded-lg px-2 bg-amber-500 text-white"
+				className=" rounded-lg px-2 bg-amber-500 text-white hover:shadow-md hover:bg-amber-700"
 				type="button"
 				onClick={() => setShowModal(true)}
 			>

@@ -20,12 +20,14 @@ export default function ListTodos() {
 	}, []);
 
 	return (
-		<div>
-			<h1 className=" text-center mt-5 text-2xl">All Todo Items</h1>
+		<div className=" rounded-lg mx-auto my-5 bg-slate-400 shadow-lg p-3 w-1/3">
+			<h1 className=" text-center mt-5 text-2xl font-semibold">
+				All Todo Items
+			</h1>
 			<div className=" flex justify-center">
 				<table className="mt-5">
 					<thead>
-						<tr className=" border-t border-b border-gray-300">
+						<tr className=" border-b-4 border-gray-500">
 							<th className="p-3">Description</th>
 							<th className="p-3">Edit</th>
 							<th className="p-3">Delete</th>
@@ -33,12 +35,12 @@ export default function ListTodos() {
 					</thead>
 					<tbody>
 						{todos.map((item) => (
-							<tr key={item.todo_id} className=" border-b">
+							<tr key={item.todo_id} className="border-b border-gray-500">
 								<td className="p-3">{item.description}</td>
-								<td className="p-3">
-									<EditBtn todo={item}/>
+								<td>
+									<EditBtn todo={item} />
 								</td>
-								<td className="p-3">
+								<td>
 									<DeleteBtn
 										id={item.todo_id}
 										setTodos={setTodos}

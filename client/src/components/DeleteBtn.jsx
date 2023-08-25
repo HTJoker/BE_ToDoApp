@@ -13,7 +13,7 @@ export default function DeleteBtn({ id, setTodos, todos }) {
 	};
 	return (
 		<button
-			className="border rounded-lg px-2 bg-red-500 text-white"
+			className="rounded-lg px-2 bg-red-500 text-white hover:shadow-md, hover:bg-red-700"
 			onClick={() => deleteTodo(id)}
 		>
 			Delete

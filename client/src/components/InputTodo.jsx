@@ -21,7 +21,7 @@ export default function InputTodo() {
 
 	return (
 		<div className=" w-full flex flex-col items-center">
-			<h1 className=" mt-5 text-3xl">PERN Todo List</h1>
+			<h1 className=" mt-5 text-3xl uppercase font-bold">PERN Todo List</h1>
 			<form className=" flex mt-5" onSubmit={onSubmit}>
 				<input
 					type="text"
